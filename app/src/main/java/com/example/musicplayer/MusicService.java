@@ -35,7 +35,6 @@ public class MusicService extends Service {
 
 
 
-    int songId = intent.getIntExtra("song_id", R.raw.f1_audio);
 
         createNotificationChannel();
 
@@ -49,7 +48,7 @@ public class MusicService extends Service {
         startForeground(1, notification);
 
 
-        mediaPlayer = MediaPlayer.create(this, songId);
+        mediaPlayer = MediaPlayer.create(this,  R.raw.f1_audio);
         mediaPlayer.start();
 
         return START_NOT_STICKY;
@@ -92,7 +91,7 @@ public class MusicService extends Service {
         }
     }
     public void pauseMusic() {
-        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+        if (mediaPlayer.isPlaying()) {
             mediaPlayer.pause();
         }
         else {
